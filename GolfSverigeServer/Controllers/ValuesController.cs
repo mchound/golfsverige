@@ -1,18 +1,26 @@
-﻿using System;
+﻿using GolfSverigeServer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using GolfSverigeServer.Database;
 
 namespace GolfSverigeServer.Controllers
 {
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        public IEnumerable<District> Get()
         {
-            return new string[] { "value1", "value2" };
+            IEnumerable<District> districts = new List<District>();
+            using (Repository db = new Repository())
+            {
+                districts = db.GetDistricts().ToList();
+            }
+
+            return districts;
         }
 
         // GET api/values/5

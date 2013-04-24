@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="justGolfModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="justGolfModelStoreContainer">
+          <EntitySet Name="Clubs" EntityType="justGolfModel.Store.Clubs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Courses" EntityType="justGolfModel.Store.Courses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Districts" EntityType="justGolfModel.Store.Districts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Holes" EntityType="justGolfModel.Store.Holes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Slopes" EntityType="justGolfModel.Store.Slopes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="justGolfModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tees" EntityType="justGolfModel.Store.Tees" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Clubs_Courses" Association="justGolfModel.Store.FK_Clubs_Courses">
+            <End Role="Clubs" EntitySet="Clubs" />
+            <End Role="Courses" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clubs_Districts" Association="justGolfModel.Store.FK_Clubs_Districts">
+            <End Role="Districts" EntitySet="Districts" />
+            <End Role="Clubs" EntitySet="Clubs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Courses_Holes" Association="justGolfModel.Store.FK_Courses_Holes">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Holes" EntitySet="Holes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Courses_Slopes" Association="justGolfModel.Store.FK_Courses_Slopes">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Slopes" EntitySet="Slopes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Districts_Clubs" Association="justGolfModel.Store.FK_Districts_Clubs">
+            <End Role="Districts" EntitySet="Districts" />
+            <End Role="Districts1" EntitySet="Districts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Holes_Tees" Association="justGolfModel.Store.FK_Holes_Tees">
+            <End Role="Holes" EntitySet="Holes" />
+            <End Role="Tees" EntitySet="Tees" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Clubs">
+          <Key>
+            <PropertyRef Name="GUID" />
+          </Key>
+          <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RegionGUID" Type="uniqueidentifier" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Lat" Type="float" />
+          <Property Name="Lon" Type="float" />
+        </EntityType>
+        <EntityType Name="Courses">
+          <Key>
+            <PropertyRef Name="GUID" />
+          </Key>
+          <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ClubGUID" Type="uniqueidentifier" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="NumberOfHoles" Type="int" />
+          <Property Name="Par" Type="int" />
+        </EntityType>
+        <EntityType Name="Districts">
+          <Key>
+            <PropertyRef Name="GUID" />
+          </Key>
+          <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Holes">
+          <Key>
+            <PropertyRef Name="GUID" />
+          </Key>
+          <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CourseGUID" Type="uniqueidentifier" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="CenterLat" Type="float" />
+          <Property Name="CenterLon" Type="float" />
+          <Property Name="FrontLat" Type="float" />
+          <Property Name="FrontLon" Type="float" />
+          <Property Name="BackLat" Type="float" />
+          <Property Name="BackLon" Type="float" />
+          <Property Name="Index" Type="int" />
+          <Property Name="Number" Type="int" />
+          <Property Name="Par" Type="int" />
+        </EntityType>
+        <EntityType Name="Slopes">
+          <Key>
+            <PropertyRef Name="GUID" />
+          </Key>
+          <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CourseGUID" Type="uniqueidentifier" />
+          <Property Name="Rating" Type="float" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="SlopeValue" Type="int" />
+          <Property Name="TeeColor" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tees">
+          <Key>
+            <PropertyRef Name="GUID" />
+          </Key>
+          <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="HoleGUID" Type="uniqueidentifier" />
+          <Property Name="Color" Type="varchar" MaxLength="50" />
+          <Property Name="Length" Type="int" />
+        </EntityType>
+        <Association Name="FK_Clubs_Courses">
+          <End Role="Clubs" Type="justGolfModel.Store.Clubs" Multiplicity="0..1" />
+          <End Role="Courses" Type="justGolfModel.Store.Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clubs">
+              <PropertyRef Name="GUID" />
+            </Principal>
+            <Dependent Role="Courses">
+              <PropertyRef Name="ClubGUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clubs_Districts">
+          <End Role="Districts" Type="justGolfModel.Store.Districts" Multiplicity="0..1" />
+          <End Role="Clubs" Type="justGolfModel.Store.Clubs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Districts">
+              <PropertyRef Name="GUID" />
+            </Principal>
+            <Dependent Role="Clubs">
+              <PropertyRef Name="RegionGUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Courses_Holes">
+          <End Role="Courses" Type="justGolfModel.Store.Courses" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Holes" Type="justGolfModel.Store.Holes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="GUID" />
+            </Principal>
+            <Dependent Role="Holes">
+              <PropertyRef Name="CourseGUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Courses_Slopes">
+          <End Role="Courses" Type="justGolfModel.Store.Courses" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Slopes" Type="justGolfModel.Store.Slopes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="GUID" />
+            </Principal>
+            <Dependent Role="Slopes">
+              <PropertyRef Name="CourseGUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Districts_Clubs">
+          <End Role="Districts" Type="justGolfModel.Store.Districts" Multiplicity="1" />
+          <End Role="Districts1" Type="justGolfModel.Store.Districts" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Districts">
+              <PropertyRef Name="GUID" />
+            </Principal>
+            <Dependent Role="Districts1">
+              <PropertyRef Name="GUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Holes_Tees">
+          <End Role="Holes" Type="justGolfModel.Store.Holes" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Tees" Type="justGolfModel.Store.Tees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Holes">
+              <PropertyRef Name="GUID" />
+            </Principal>
+            <Dependent Role="Tees">
+              <PropertyRef Name="HoleGUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="justGolfModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="justGolfEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Clubs" EntityType="justGolfModel.Clubs" />
+          <EntitySet Name="Courses" EntityType="justGolfModel.Courses" />
+          <EntitySet Name="Districts" EntityType="justGolfModel.Districts" />
+          <EntitySet Name="Holes" EntityType="justGolfModel.Holes" />
+          <EntitySet Name="Slopes" EntityType="justGolfModel.Slopes" />
+          <EntitySet Name="sysdiagrams" EntityType="justGolfModel.sysdiagrams" />
+          <EntitySet Name="Tees" EntityType="justGolfModel.Tees" />
+          <AssociationSet Name="FK_Clubs_Courses" Association="justGolfModel.FK_Clubs_Courses">
+            <End Role="Clubs" EntitySet="Clubs" />
+            <End Role="Courses" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clubs_Districts" Association="justGolfModel.FK_Clubs_Districts">
+            <End Role="Districts" EntitySet="Districts" />
+            <End Role="Clubs" EntitySet="Clubs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Courses_Holes" Association="justGolfModel.FK_Courses_Holes">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Holes" EntitySet="Holes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Courses_Slopes" Association="justGolfModel.FK_Courses_Slopes">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Slopes" EntitySet="Slopes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Districts_Clubs" Association="justGolfModel.FK_Districts_Clubs">
+            <End Role="Districts" EntitySet="Districts" />
+            <End Role="Districts1" EntitySet="Districts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Holes_Tees" Association="justGolfModel.FK_Holes_Tees">
+            <End Role="Holes" EntitySet="Holes" />
+            <End Role="Tees" EntitySet="Tees" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Clubs">
+          <Key>
+            <PropertyRef Name="GUID" />
+          </Key>
+          <Property Name="GUID" Type="Guid" Nullable="false" />
+          <Property Name="RegionGUID" Type="Guid" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Lat" Type="Double" />
+          <Property Name="Lon" Type="Double" />
+          <NavigationProperty Name="Courses" Relationship="justGolfModel.FK_Clubs_Courses" FromRole="Clubs" ToRole="Courses" />
+          <NavigationProperty Name="Districts" Relationship="justGolfModel.FK_Clubs_Districts" FromRole="Clubs" ToRole="Districts" />
+        </EntityType>
+        <EntityType Name="Courses">
+          <Key>
+            <PropertyRef Name="GUID" />
+          </Key>
+          <Property Name="GUID" Type="Guid" Nullable="false" />
+          <Property Name="ClubGUID" Type="Guid" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NumberOfHoles" Type="Int32" />
+          <Property Name="Par" Type="Int32" />
+          <NavigationProperty Name="Clubs" Relationship="justGolfModel.FK_Clubs_Courses" FromRole="Courses" ToRole="Clubs" />
+          <NavigationProperty Name="Holes" Relationship="justGolfModel.FK_Courses_Holes" FromRole="Courses" ToRole="Holes" />
+          <NavigationProperty Name="Slopes" Relationship="justGolfModel.FK_Courses_Slopes" FromRole="Courses" ToRole="Slopes" />
+        </EntityType>
+        <EntityType Name="Districts">
+          <Key>
+            <PropertyRef Name="GUID" />
+          </Key>
+          <Property Name="GUID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Clubs" Relationship="justGolfModel.FK_Clubs_Districts" FromRole="Districts" ToRole="Clubs" />
+          <NavigationProperty Name="Districts1" Relationship="justGolfModel.FK_Districts_Clubs" FromRole="Districts" ToRole="Districts1" />
+          <NavigationProperty Name="Districts2" Relationship="justGolfModel.FK_Districts_Clubs" FromRole="Districts1" ToRole="Districts" />
+        </EntityType>
+        <EntityType Name="Holes">
+          <Key>
+            <PropertyRef Name="GUID" />
+          </Key>
+          <Property Name="GUID" Type="Guid" Nullable="false" />
+          <Property Name="CourseGUID" Type="Guid" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CenterLat" Type="Double" />
+          <Property Name="CenterLon" Type="Double" />
+          <Property Name="FrontLat" Type="Double" />
+          <Property Name="FrontLon" Type="Double" />
+          <Property Name="BackLat" Type="Double" />
+          <Property Name="BackLon" Type="Double" />
+          <Property Name="Index" Type="Int32" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="Par" Type="Int32" />
+          <NavigationProperty Name="Courses" Relationship="justGolfModel.FK_Courses_Holes" FromRole="Holes" ToRole="Courses" />
+          <NavigationProperty Name="Tees" Relationship="justGolfModel.FK_Holes_Tees" FromRole="Holes" ToRole="Tees" />
+        </EntityType>
+        <EntityType Name="Slopes">
+          <Key>
+            <PropertyRef Name="GUID" />
+          </Key>
+          <Property Name="GUID" Type="Guid" Nullable="false" />
+          <Property Name="CourseGUID" Type="Guid" />
+          <Property Name="Rating" Type="Double" />
+          <Property Name="Gender" Type="Int32" />
+          <Property Name="SlopeValue" Type="Int32" />
+          <Property Name="TeeColor" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Courses" Relationship="justGolfModel.FK_Courses_Slopes" FromRole="Slopes" ToRole="Courses" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tees">
+          <Key>
+            <PropertyRef Name="GUID" />
+          </Key>
+          <Property Name="GUID" Type="Guid" Nullable="false" />
+          <Property Name="HoleGUID" Type="Guid" />
+          <Property Name="Color" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Length" Type="Int32" />
+          <NavigationProperty Name="Holes" Relationship="justGolfModel.FK_Holes_Tees" FromRole="Tees" ToRole="Holes" />
+        </EntityType>
+        <Association Name="FK_Clubs_Courses">
+          <End Role="Clubs" Type="justGolfModel.Clubs" Multiplicity="0..1" />
+          <End Role="Courses" Type="justGolfModel.Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clubs">
+              <PropertyRef Name="GUID" />
+            </Principal>
+            <Dependent Role="Courses">
+              <PropertyRef Name="ClubGUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clubs_Districts">
+          <End Role="Districts" Type="justGolfModel.Districts" Multiplicity="0..1" />
+          <End Role="Clubs" Type="justGolfModel.Clubs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Districts">
+              <PropertyRef Name="GUID" />
+            </Principal>
+            <Dependent Role="Clubs">
+              <PropertyRef Name="RegionGUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Courses_Holes">
+          <End Role="Courses" Type="justGolfModel.Courses" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Holes" Type="justGolfModel.Holes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="GUID" />
+            </Principal>
+            <Dependent Role="Holes">
+              <PropertyRef Name="CourseGUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Courses_Slopes">
+          <End Role="Courses" Type="justGolfModel.Courses" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Slopes" Type="justGolfModel.Slopes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="GUID" />
+            </Principal>
+            <Dependent Role="Slopes">
+              <PropertyRef Name="CourseGUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Districts_Clubs">
+          <End Role="Districts" Type="justGolfModel.Districts" Multiplicity="1" />
+          <End Role="Districts1" Type="justGolfModel.Districts" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Districts">
+              <PropertyRef Name="GUID" />
+            </Principal>
+            <Dependent Role="Districts1">
+              <PropertyRef Name="GUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Holes_Tees">
+          <End Role="Holes" Type="justGolfModel.Holes" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Tees" Type="justGolfModel.Tees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Holes">
+              <PropertyRef Name="GUID" />
+            </Principal>
+            <Dependent Role="Tees">
+              <PropertyRef Name="HoleGUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="justGolfModelStoreContainer" CdmEntityContainer="justGolfEntities">
+          <EntitySetMapping Name="Clubs">
+            <EntityTypeMapping TypeName="justGolfModel.Clubs">
+              <MappingFragment StoreEntitySet="Clubs">
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="RegionGUID" ColumnName="RegionGUID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Lon" ColumnName="Lon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="justGolfModel.Courses">
+              <MappingFragment StoreEntitySet="Courses">
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="ClubGUID" ColumnName="ClubGUID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NumberOfHoles" ColumnName="NumberOfHoles" />
+                <ScalarProperty Name="Par" ColumnName="Par" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Districts">
+            <EntityTypeMapping TypeName="justGolfModel.Districts">
+              <MappingFragment StoreEntitySet="Districts">
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Holes">
+            <EntityTypeMapping TypeName="justGolfModel.Holes">
+              <MappingFragment StoreEntitySet="Holes">
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="CourseGUID" ColumnName="CourseGUID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CenterLat" ColumnName="CenterLat" />
+                <ScalarProperty Name="CenterLon" ColumnName="CenterLon" />
+                <ScalarProperty Name="FrontLat" ColumnName="FrontLat" />
+                <ScalarProperty Name="FrontLon" ColumnName="FrontLon" />
+                <ScalarProperty Name="BackLat" ColumnName="BackLat" />
+                <ScalarProperty Name="BackLon" ColumnName="BackLon" />
+                <ScalarProperty Name="Index" ColumnName="Index" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Par" ColumnName="Par" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Slopes">
+            <EntityTypeMapping TypeName="justGolfModel.Slopes">
+              <MappingFragment StoreEntitySet="Slopes">
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="CourseGUID" ColumnName="CourseGUID" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="SlopeValue" ColumnName="SlopeValue" />
+                <ScalarProperty Name="TeeColor" ColumnName="TeeColor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="justGolfModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tees">
+            <EntityTypeMapping TypeName="justGolfModel.Tees">
+              <MappingFragment StoreEntitySet="Tees">
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="HoleGUID" ColumnName="HoleGUID" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

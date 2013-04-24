@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fa975991c3d348b6aa32fbdc20d34122" Name="Diagram1">
+        <EntityTypeShape EntityType="justGolfModel.Clubs" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="justGolfModel.Courses" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="justGolfModel.Districts" Width="1.5" PointX="0.625" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="justGolfModel.Holes" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="justGolfModel.Slopes" Width="1.5" PointX="7.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="justGolfModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="justGolfModel.Tees" Width="1.5" PointX="9.75" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="justGolfModel.FK_Clubs_Courses" ManuallyRouted="false" />
+        <AssociationConnector Association="justGolfModel.FK_Clubs_Districts" ManuallyRouted="false" />
+        <AssociationConnector Association="justGolfModel.FK_Courses_Holes" ManuallyRouted="false" />
+        <AssociationConnector Association="justGolfModel.FK_Courses_Slopes" ManuallyRouted="false" />
+        <AssociationConnector Association="justGolfModel.FK_Districts_Clubs" ManuallyRouted="false" />
+        <AssociationConnector Association="justGolfModel.FK_Holes_Tees" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

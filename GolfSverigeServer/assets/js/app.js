@@ -68,7 +68,6 @@ $.ajax({
         url: gs.serverUrl,
         dataType: 'json',
         type: 'GET',
-        //data: data,
         success: function (data) {
             gs.model = data;
         },
