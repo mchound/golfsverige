@@ -23,13 +23,22 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GolfSverige", "http://local
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GolfSverigeServer", "GolfSverigeServer\GolfSverigeServer.csproj", "{F1F083FE-3CDB-41C3-9C4D-665138F4D135}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{95189021-570C-4E9A-9655-A9FA08FE2BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{95189021-570C-4E9A-9655-A9FA08FE2BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95189021-570C-4E9A-9655-A9FA08FE2BCF}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{95189021-570C-4E9A-9655-A9FA08FE2BCF}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{F1F083FE-3CDB-41C3-9C4D-665138F4D135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1F083FE-3CDB-41C3-9C4D-665138F4D135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1F083FE-3CDB-41C3-9C4D-665138F4D135}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1F083FE-3CDB-41C3-9C4D-665138F4D135}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

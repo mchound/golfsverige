@@ -1,0 +1,105 @@
+﻿<html>
+<head>
+	<title>Golf Rate</title>
+    <link href="assets/css/styles.css" rel="stylesheet" />
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+<body>
+    <h1 data-bind="text: clubs"></h1>
+	<div id="map-canvas"></div>
+	<div class="space">
+		<div class="container">
+			<div class="search">
+				<div class="row">
+					<div class="one-half"></div>
+					<div class="one-half main-search">
+						<input type="text" placeholder="">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="one-one">
+					<div class="nav">
+						<div class="menu-item">
+							<button class="nav-button">Nyheter</button>
+							<div class="nav-body">
+							</div>							
+						</div>
+						<div class="menu-item">
+							<button class="nav-button">Filter</button>
+							<div class="nav-body">
+								<div class="filter-section clearfix">
+									<h2>Distrikt</h2>
+									<ul class="check-buttons tag-cloud">
+										<li><button data-value="1" class="checked">Blekinge&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Bohuslän-Dals&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Dalarnas&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Gotlands&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Gästrike-Hälsinges&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Göteborgs&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Hallands&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Jämtland-Härjedalens&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Medelpads&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Norr-&nbsp;&&nbsp;Västerbottens&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Skånes&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Smålands&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Stockholms&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Södermanlands&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Upplands&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Värmlands&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Västergötlands&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Västmanlands&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Ångermanlands&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Örebro&nbsp;Läns&nbsp;GDF</button></li>
+										<li><button data-value="1" class="checked">Östergötlands&nbsp;GDF</button></li>										
+									</ul>
+								</div>
+                                <div class="filter-section clearfix">
+                                    <h2>Medelbetyg</h2>
+                                    <ul class="check-buttons">
+                                        <li><button data-value="1" class="checked">1</button></li>
+                                        <li><button data-value="2" class="checked">2</button></li>
+                                        <li><button data-value="3" class="checked">3</button></li>
+                                        <li><button data-value="4" class="checked">4</button></li>
+                                        <li><button data-value="5" class="checked">5</button></li>
+                                    </ul>
+                                </div>
+                                <div class="filter-section clearfix">
+                                    <h2>Finish</h2>
+                                    <ul class="check-buttons">
+                                        <li><button data-value="1" class="checked">1</button></li>
+                                        <li><button data-value="2" class="checked">2</button></li>
+                                        <li><button data-value="3" class="checked">3</button></li>
+                                        <li><button data-value="4" class="checked">4</button></li>
+                                        <li><button data-value="5" class="checked">5</button></li>
+                                    </ul>
+                                </div>
+                                <div class="filter-section clearfix">
+                                    <h2>Snabbhet greener</h2>
+                                    <ul class="check-buttons">
+                                        <li><button data-value="1" class="checked">1</button></li>
+                                        <li><button data-value="2" class="checked">2</button></li>
+                                        <li><button data-value="3" class="checked">3</button></li>
+                                        <li><button data-value="4" class="checked">4</button></li>
+                                        <li><button data-value="5" class="checked">5</button></li>
+                                    </ul>
+                                </div>
+							</div>
+						</div>
+						<div class="menu-item">
+							<button class="nav-button">Toppbanor</button>
+							<div class="nav-body">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkApSU5IHAUJ4nZwH4TKRYDjQSfsbwlcM&sensor=false"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="Scripts/knockout-2.2.1.debug.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/jquery.transit.js"></script>
+</body>
+</html>

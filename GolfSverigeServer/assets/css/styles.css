@@ -1,0 +1,163 @@
+﻿* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+body {
+  font-size: 12px;
+  font-family: Calibri;
+  color: #ffffff;
+}
+h5 {
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+h4 {
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+h2 {
+  font-size: 18px;
+  margin-bottom: 9px;
+}
+h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+ul {
+  list-style: none;
+}
+#map-canvas {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+div.container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0px 10px 0px 10px;
+  opacity: 0.99;
+}
+div.search {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+div.main-search {
+  padding: 25px;
+}
+div.main-search input {
+  padding: 10px;
+  height: 40px;
+  font: normal 20px Calibri;
+  width: 100%;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.8);
+}
+div.main-search input:focus {
+  background-color: #eee;
+}
+div.nav {
+  width: 100%;
+}
+div.nav div.menu-item {
+  float: left;
+  margin-right: 10px;
+}
+div.nav div.menu-item button.nav-button {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  border-bottom: 1px solid #35a0a5;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  color: #ffffff;
+}
+div.nav div.menu-item button.nav-button:hover {
+  background-color: #35a0a5;
+}
+div.nav div.menu-item.active {
+  width: 20%;
+}
+div.nav div.menu-item div.nav-body {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  height: 0px;
+  display: none;
+  overflow: hidden;
+}
+ul.tag-cloud li {
+  display: inline;
+  margin: 0 5px 5px 0;
+}
+ul.tag-cloud li button {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+  padding: 3px;
+}
+ul.tag-cloud li button.checked {
+  background-color: #35a0a5;
+}
+.filter-section {
+  margin-bottom: 10px;
+}
+/*Check buttons*/
+.check-buttons li {
+  float: left;
+  margin-right: 5px;
+}
+.check-buttons li button {
+  width: auto;
+  height: auto;
+  border: none;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  cursor: pointer;
+}
+.check-buttons li button.checked {
+  background-color: #35a0a5;
+}
+.check-buttons li button:hover {
+  background-color: #164244;
+}
+.check-buttons li button.checked:hover {
+  background-color: #2f8d92;
+}
+.clearfix:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+/*Scaffolding*/
+[class*='one-'] {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  float: left;
+  padding-right: 3%;
+  min-height: 1px;
+}
+.row {
+  margin-top: 10px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.one-one {
+  width: 100%;
+}
+.one-half {
+  width: 50%;
+}
+.one-fifth {
+  width: 20%;
+}
