@@ -56,7 +56,7 @@ $(function () {
 
 // Here's my data model
 var ViewModel = function () {
-    this.clubs = ko.observable('hej');
+    this.searchQuery = ko.observable('');
 };
 
 ko.applyBindings(new ViewModel());

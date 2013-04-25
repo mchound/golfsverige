@@ -49,6 +49,7 @@ div.search {
 }
 div.main-search {
   padding: 25px;
+  position: relative;
 }
 div.main-search input {
   padding: 10px;
@@ -61,6 +62,15 @@ div.main-search input {
 }
 div.main-search input:focus {
   background-color: #eee;
+}
+.main-search .results {
+  position: absolute;
+  left: 25px;
+  right: 25px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
+  display: none;
 }
 div.nav {
   width: 100%;

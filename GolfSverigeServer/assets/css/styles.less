@@ -67,6 +67,7 @@ div.search{
 
 div.main-search{
 	padding: 25px;	
+    position: relative;
 }
 
 div.main-search input{
@@ -81,6 +82,16 @@ div.main-search input{
 
 div.main-search input:focus{
 	background-color: #eee;
+}
+
+.main-search .results{
+    position: absolute;
+    left: 25px;
+    right: 25px;
+    padding: @space;
+    background-color: @light-black;
+    box-sizing: border-box;
+    display: none;
 }
 
 div.nav{
@@ -165,7 +176,6 @@ ul.tag-cloud li{
         .check-buttons li button.checked:hover{
             background-color: darken(@primary-color, 5%);
         }
-
 
 .clearfix:after{
     content: " ";
