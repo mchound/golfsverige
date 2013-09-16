@@ -16,6 +16,8 @@ function initialize() {
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
+// This is a comment
+
 $(function () {
 
     $('div.nav div.menu-item').each(function (i, item) {
