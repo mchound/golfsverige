@@ -16,7 +16,7 @@ function initialize() {
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
-// This is a comment
+// This is a comment, following
 
 $(function () {
 
